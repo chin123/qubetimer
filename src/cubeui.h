@@ -18,103 +18,103 @@ using std::vector;
 using namespace QtCharts;
 
 class CubeUi: public QWidget {
-    
-  Q_OBJECT
 
-  public:
-    CubeUi(QWidget *parent = 0);
+Q_OBJECT
 
-  private slots:
-    void onScramble();
-    void onDnf();
-    void onPlus2();
-    void onDelete();
-    void updateTime();
-    void startTimer();
+public:
+	CubeUi(QWidget *parent = 0);
 
-  private:
-    /* The label which displays the scramble. */
-    QLabel *lbl;
+private slots:
+	void onScramble();
+	void onDnf();
+	void onPlus2();
+	void onDelete();
+	void updateTime();
+	void startTimer();
 
-    /* The label which displays the time. */
-    QLabel *timelbl;
+private:
+	/* The label which displays the scramble. */
+	QLabel *lbl;
 
-    /* Displays the average statistics. */
-    QLabel *ao;
+	/* The label which displays the time. */
+	QLabel *timelbl;
 
-    /* Used for alignment purposes. */
-    QLabel *dummy;
+	/* Displays the average statistics. */
+	QLabel *ao;
 
-    /* Holds the image of the scramble. */
-    QLabel *scrambleImage;
+	/* Used for alignment purposes. */
+	QLabel *dummy;
 
-    /* Ticks the timer to update the clock. */
-    QTimer *timer_1s;
+	/* Holds the image of the scramble. */
+	QLabel *scrambleImage;
 
-    /* The statistics graph. */
-    QChart *chart;
+	/* Ticks the timer to update the clock. */
+	QTimer *timer_1s;
 
-    /* The Y axis of the statistics graph. */
-    QValueAxis *axisY;
+	/* The statistics graph. */
+	QChart *chart;
 
-    /* Stores the elapsed time. */
-    QElapsedTimer timer;
+	/* The Y axis of the statistics graph. */
+	QValueAxis *axisY;
 
-    /* Stores the past times. */
-    QTableWidget *tableWidget;
+	/* Stores the elapsed time. */
+	QElapsedTimer timer;
 
-    /* The button which generates a new scramble. */
-    QPushButton *scrambleBtn;
+	/* Stores the past times. */
+	QTableWidget *tableWidget;
 
-    /* Adds +2 to the previous time. */
-    QPushButton *plus2Btn;
+	/* The button which generates a new scramble. */
+	QPushButton *scrambleBtn;
 
-    /* Makes the previous time a DNF. */
-    QPushButton *dnfBtn;
+	/* Adds +2 to the previous time. */
+	QPushButton *plus2Btn;
 
-    /* Deletes the previous time. */
-    QPushButton *deleteBtn;
+	/* Makes the previous time a DNF. */
+	QPushButton *dnfBtn;
 
-    /* Stores whether the current keypress should be used to start the timer. */
-    int toStart;
+	/* Deletes the previous time. */
+	QPushButton *deleteBtn;
 
-    /* Stores all the times recorded so far. */
-    vector<float> times;
+	/* Stores whether the current keypress should be used to start the timer. */
+	int toStart;
 
-    /* Stores the ao5 of all times recorded so far. */
-    vector<float> ao5times;
+	/* Stores all the times recorded so far. */
+	vector<float> times;
 
-    /* Updates the average statistics. */
-    void updateAvg();
+	/* Stores the ao5 of all times recorded so far. */
+	vector<float> ao5times;
 
-    /* Updates the Ao5 statistics. */
-    void updateAo5();
+	/* Updates the average statistics. */
+	void updateAvg();
 
-    /* Draws the image of the scramble. */
-    void drawImage();
+	/* Updates the Ao5 statistics. */
+	void updateAo5();
 
-    /* Does the initial setup of the table. */
-    void setupTable();
+	/* Draws the image of the scramble. */
+	void drawImage();
 
-    /* Does the initial setup of the Grid UI. */
-    void setupUi();
+	/* Does the initial setup of the table. */
+	void setupTable();
 
-    /* Does the initial setup of the statistics graph. */
-    void setupGraph();
+	/* Does the initial setup of the Grid UI. */
+	void setupUi();
 
-    /* Converts the cube representation from corners and edges to each individual face. */
-    void setupFaces(char corners[8][4], char edges[12][3]);
+	/* Does the initial setup of the statistics graph. */
+	void setupGraph();
 
-    /* Returns a scramble representing the current setup. */
-    char* scramble();
+	/* Converts the cube representation from corners and edges to each individual face. */
+	void setupFaces(char corners[8][4], char edges[12][3]);
 
-    /* Stores the current scramble. */
-    std::string currentScramble;
+	/* Returns a scramble representing the current setup. */
+	char* scramble();
 
-    /* The colors on each face of the cube. */
-    char u[9], r[9], f[9], d[9], l[9], b[9];
+	/* Stores the current scramble. */
+	std::string currentScramble;
 
-  protected:
-    void keyPressEvent(QKeyEvent *e);
-    void keyReleaseEvent(QKeyEvent *e);
+	/* The colors on each face of the cube. */
+	char u[9], r[9], f[9], d[9], l[9], b[9];
+
+protected:
+	void keyPressEvent(QKeyEvent *e);
+	void keyReleaseEvent(QKeyEvent *e);
 };

@@ -1,14 +1,14 @@
 #include "cubeui.h"
 
-int main(int argc, char *argv[]) {
-    
-  QApplication app(argc, argv);  
-    
-  CubeUi window;
+int main(int argc, char *argv[])
+{
+	QApplication app(argc, argv);  
 
-  window.resize(300, 190);
-  window.setWindowTitle("Rubik's Cube Timer");
-  window.show();
+	CubeUi window;
 
-  return app.exec();
+	window.resize(300, 190);
+	window.setWindowTitle("Rubik's Cube Timer");
+	window.show();
+
+	return app.exec();
 }
