@@ -23,6 +23,7 @@
 #include <unordered_map>
 #include <ctime>
 #include <limits>
+#include <random>
 
 using std::cout;
 using std::endl;
@@ -102,11 +103,15 @@ char* CubeUi::scramble()
 	while (sol == NULL) {
 		std::random_shuffle(corners, corners+8);
 		std::random_shuffle(edges, edges+12);
+		std::random_device dev;
+		std::mt19937 rng(dev());
+		std::uniform_int_distribution<std::mt19937::result_type> dist3(0,2);
+		std::uniform_int_distribution<std::mt19937::result_type> dist2(0,1);
 		for (int i = 0; i < 8; i++) {
-			std::rotate(corners[i], corners[i]+(rand()%3), corners[i]+3);
+			std::rotate(corners[i], corners[i]+dist3(rng), corners[i]+3);
 		}
 		for (int i = 0; i < 12; i++) {
-			std::rotate(edges[i], edges[i]+(rand()%2), edges[i]+2);
+			std::rotate(edges[i], edges[i]+dist2(rng), edges[i]+2);
 		}
 		setupFaces(corners, edges);
 		int count = 0;
