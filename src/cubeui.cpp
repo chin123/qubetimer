@@ -307,7 +307,7 @@ void CubeUi::setupTable()
 	tableWidget = new QTableWidget(0, 3, this);
 	tableWidget->horizontalHeader()->setStretchLastSection(true);
 	QStringList headings;
-	headings << QString("Date") << QString("Time") << QString("Scramble"); 
+	headings << QString("Date") << QString("Time") << QString("Scramble");
 	tableWidget->setHorizontalHeaderLabels(headings);
 	std::ifstream ifile("times.csv");
 	std::string curline;
@@ -411,7 +411,7 @@ CubeUi::CubeUi(QWidget *parent) : QWidget(parent)
 	grid->addWidget(dummy, 4, 0, 1, 4);
 	grid->addWidget(tableWidget, 5, 0, 5, 4);
 
-	setLayout(grid); 
+	setLayout(grid);
 	onScramble();
 	updateAvg();
 	QLineSeries* ao5series = new QLineSeries();
