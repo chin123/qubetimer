@@ -2,12 +2,11 @@
 
 int main(int argc, char *argv[])
 {
-	QApplication app(argc, argv);  
+	QApplication app(argc, argv);
 
 	CubeUi window;
 
-	window.resize(300, 190);
-	window.setWindowTitle("Rubik's Cube Timer");
+	window.setWindowTitle("qubetimer");
 	window.show();
 
 	return app.exec();

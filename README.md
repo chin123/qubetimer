@@ -1,4 +1,6 @@
 # qubetimer
+[Download for Linux](https://github.com/chin123/qubetimer/releases/download/v0.0.1/qubetimer-linux)
+
 ## Features:
 * Times solves
 * Keeps history of solves

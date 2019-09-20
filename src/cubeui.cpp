@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstring>
+#include <cstdio>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -314,6 +315,7 @@ void CubeUi::setupTable()
 	QStringList headings;
 	headings << QString("Date") << QString("Time") << QString("Scramble");
 	tableWidget->setHorizontalHeaderLabels(headings);
+	tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	std::ifstream ifile("times.csv");
 	std::string curline;
 	while (std::getline(ifile, curline)) {
@@ -529,7 +531,9 @@ void CubeUi::startTimer()
 
 void CubeUi::updateTime()
 {
-	timelbl->setText(QString::number(timer.elapsed()/1000.0));
+	char time[10];
+	sprintf(time, "%.2f", timer.elapsed()/1000.0);
+	timelbl->setText(time);
 }
 
 void CubeUi::updateAo5()
